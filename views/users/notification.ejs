@@ -1,0 +1,31 @@
+<%- layout("/layouts/boilerplate") -%>
+    <div class="noticontainer">
+        <h1>  Notification panel</h1>
+      
+        <% if(notifications && notifications.length) { %>
+            <% for(notification of notifications) { %>
+                <center><details>
+                    <summary>you got a response from <strong><%= notification.from[0].username %></strong></summary>
+                    <div class="content">
+                        <h4>Post</h4>
+                        <a href="/posts/<%= notification.post[0]._id %>">See post detail</a>
+                        <h4>Response info: </h4>
+                        <p>username: <%= notification.from[0].username %></p>
+                        <p>email: <%= notification.from[0].email %></p>
+                    </div>
+                </details>
+            </center>
+                
+            <% } %>
+        <% } %>
+
+    </div>
+    <script>
+        const sender_id = "<%= currUser._id %>";
+        let socket = io("/user-namespace", {
+            auth: {
+                token: sender_id,
+            },
+        });
+    </script>
+

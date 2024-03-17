@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invito-connecting peoples</title>
+    <script src="https://kit.fontawesome.com/8f7f537382.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="css/navbar">
+    <link rel="icon" href="https://res.cloudinary.com/dfq5rnahw/image/upload/v1706893513/invito/paper-plane_bqmvgx.png"  type="image/x-icon">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"
+      integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+        body {
+            background: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin: 20px 0 20px;
+            small {
+                display: block;
+                font-size: 15px;
+                padding-top: 8px;
+                color: gray;
+            }
+        }
+
+        .avatar-upload {
+            position: relative;
+            max-width: 205px;
+            margin: 50px auto;
+
+            .avatar-edit {
+                position: absolute;
+                right: 12px;
+                z-index: 1;
+                top: 10px;
+
+                input {
+                    display: none;
+                    + label {
+                        display: inline-block;
+                        width: 34px;
+                        height: 34px;
+                        margin-bottom: 0;
+                        border-radius: 100%;
+                        background: #FFFFFF;
+                        border: 1px solid transparent;
+                        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                        cursor: pointer;
+                        font-weight: normal;
+                        transition: all .2s ease-in-out;
+
+                        &:hover {
+                            background: #f1f1f1;
+                            border-color: #d6d6d6;
+                        }
+
+                        &:after {
+                            content: "\f040";
+                            font-family: 'FontAwesome';
+                            color: #757575;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            right: 0;
+                            text-align: center;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+
+            .avatar-preview {
+                width: 192px;
+                height: 192px;
+                position: relative;
+                border-radius: 100%;
+                border: 6px solid #F8F8F8;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+                > div {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+
+        .profile-info {
+            margin-top: 20px;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+            }
+        }
+        @import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+  
+  line-height: 1.4;
+  
+  font-family: 'Inter', sans-serif;
+  font-size: calc(.6rem + .4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+
+h1, h2, h3 {
+  font-weight: 900;
+}
+
+mark {
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 0 0.2em;
+}
+
+.card {
+  background: var(--color-background);
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+  
+  &--inverted {
+    --color-background: var(--color-dark);
+    color: var(--color-light);
+    --color-shadow: var(--color-accent);
+  }
+  
+  &--accent {
+    --color-background: var(--color-signal);
+    --color-accent: var(--color-light);
+    color: var(--color-dark);
+  }
+  
+  *:first-child {
+    margin-top: 0;
+  }
+}
+
+
+.l-design-widht {
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+.input {
+  position: relative;
+  
+  &__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+    background: pink;
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: var(--color-background);
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  &__field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 3px solid currentColor;
+    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    color: currentColor;
+    background: transparent;
+    border-radius: var(--size-radius);
+    
+    &:focus,
+    &:not(:placeholder-shown) {
+      & + .input__label {
+        transform: translate(.25rem, -65%) scale(.8);
+        color: var(--color-accent);
+      }
+    }
+  }
+}
+
+
+.button-group {
+  margin-top: calc(var(--size-bezel) * 2.5);
+}
+
+button {
+    pointer-events: stroke;
+    cursor: pointer;
+  color: currentColor;
+  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+  
+  &[type=reset]{
+    background: var(--color-background);
+    font-weight: 200;
+  } 
+}
+
+button + button {
+  margin-left: calc(var(--size-bezel) * 2);
+}
+
+.icon {
+  display: inline-block;
+  width: 1em; height: 1em;
+  margin-right: .5em;
+}
+
+.hidden {
+  display: none;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Profile Settings<small>Edit your profile information</small></h1>
+        <form action="/users/updateProfile" method="post" enctype="multipart/form-data">
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                    <input type='file' id="imageUpload" accept="image/*" name="image"/>
+                    <!-- <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="image"/> -->
+                    <label for="imageUpload"></label>
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url('<%= user.profile_image.url %>'); " aria-placeholder="adjgkd"></div>
+                </div>
+            </div>
+            <button>Update Profile Photo</button>
+        </form>
+            <div class="profile-info">
+
+                <div class="card">
+                    <h2><svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-coffee" href="#icon-coffee" /></svg>Username:</h2>
+                    <form action="/users/edit" method="post" >
+                        <label class="input">
+                            <input class="input__field" type="text" placeholder="username " name="username" value="<%= currUser.username %>"/>
+                            <h2><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-coffee" href="#icon-coffee" /></svg>Bio:</h2>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Enter your bio" name="bio" ><%= currUser.bio %></textarea>
+                        </label>
+                        <div class="button-group">
+                          <button id="updateImage">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const sender_id = "<%= currUser._id %>";
+        let socket = io("/user-namespace", {
+            auth: {
+                token: sender_id,
+            },
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").change(function () {
+            readURL(this);
+        });
+
+
+        // document.getElementById("updateImage").addEventListener("click", function(event){
+        //   event.preventDefault()
+        // });
+    </script>
+</body>
+
+</html>

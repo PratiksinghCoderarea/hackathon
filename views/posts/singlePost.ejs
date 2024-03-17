@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invito-connecting peoples</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="https://res.cloudinary.com/dfq5rnahw/image/upload/v1706893513/invito/paper-plane_bqmvgx.png"
+        type="image/x-icon">
+    <script src="https://kit.fontawesome.com/8f7f537382.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"
+        integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    </body>
+</head>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
+            Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        background: #fafafa;
+    }
+
+
+
+    .button-50 {
+        appearance: button;
+        background-color: #000;
+        background-image: none;
+        border: 1px solid #000;
+        border-radius: 4px;
+        box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        margin: 0 5px 10px 0;
+        overflow: visible;
+        padding: 12px 40px;
+        text-align: center;
+        text-transform: none;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    .button-50:focus {
+        text-decoration: none;
+    }
+
+    .button-50:hover {
+        text-decoration: none;
+    }
+
+    .button-50:active {
+        box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+        outline: 0;
+    }
+
+    .button-50:not([disabled]):active {
+        box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+        transform: translate(2px, 2px);
+    }
+
+    @media (min-width: 768px) {
+        .button-50 {
+            padding: 12px 50px;
+        }
+    }
+
+
+
+    .action .profile {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action .profile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+
+   
+
+    
+
+    
+
+
+    button {
+        padding: 5px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    button.clicked {
+        background-color: #cfd1cf;
+    }
+
+
+    .col-9 .card .top .userDetails {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .profilepic {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .profilepic .profile_img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(to right, red, orange);
+        padding: 2px;
+        margin-right: 8px;
+        cursor: pointer;
+    }
+
+    .profilepic .profile_img .image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+    }
+
+    .profilepic .profile_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    
+
+    .col-9 .card .top .userDetails h3 {
+        /* width: 100%; */
+        font-size: 16px;
+        color: #4d4d4f;
+        font-weight: 500;
+        line-height: 1em;
+    }
+
+    .col-9 .card .top .userDetails h3 span {
+        font-size: 0.75em;
+    }
+
+    .col-9 .card .top .userDetails h3 span {
+        font-size: 0.75em;
+    }
+
+    .dot {
+        transform: scale(0.6);
+        cursor: pointer;
+    }
+
+  
+
+    .actionBtns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .actionBtns svg {
+        cursor: pointer;
+    }
+
+    .actionBtns .left svg {
+        margin-right: 8px;
+    }
+
+    .likes {
+        font-weight: 500;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #4d4d4f;
+    }
+
+    .message {
+        /* font-weight: 100; */
+        /* margin-top: 5px; */
+        font-size: 15px;
+        color: #777;
+        line-height: 1.5em;
+    }
+
+    .message b {
+        color: #262626;
+    }
+
+    .message span {
+        cursor: pointer;
+        color: #1d92ff;
+    }
+
+    .comments {
+        margin-top: 10px;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .addComments {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .addComments a {
+        color: #1d92ffcb;
+        font-weight: 500;
+    }
+
+    .addComments .reaction {
+        position: relative;
+        font-size: 1.3rem;
+        margin-right: 10px;
+        color: rgb(88, 88, 88);
+    }
+
+    input.text {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: #262626;
+        background: none;
+    }
+
+    input.text::placeholder {
+        color: #777;
+    }
+
+    .postTime {
+        margin-top: 8px;
+        font-weight: lighter;
+        color: rgb(163, 163, 163);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .col-9 {
+            width: 100%;
+            background: #fafafa;
+        }
+
+    }
+
+    @media screen and (max-width: 450px) {
+        .container {
+            width: 100% !important;
+        }
+    }
+
+    .navbar .container {
+        padding: 15px 10px !important;
+    }
+
+    .col-9 {
+        margin-top: 4px;
+        min-width: 100%;
+    }
+
+    .statuses {
+        margin-bottom: 0px;
+    }
+
+    .col-9 .card {
+        width: 100% !important;
+        margin-bottom: 0px;
+        width: 100%;
+        border: none;
+    }
+
+   
+
+    .interstedPersons {
+        
+        display: flex;
+        width: 100%;
+
+        padding: 10px ;
+        border-bottom: 2px solid black;
+        justify-content: space-around;
+
+        padding: 10px 20px;
+        border-bottom: 2px solid black;
+        justify-content: space-between;
+
+        align-items: center;
+
+    }
+    .userinfo{
+        display: flex;
+        width: 100%;
+
+        padding: 10px ;
+
+        padding: 10px 20px;
+
+        
+        
+        align-items: center;
+
+    }
+</style>
+
+
+<body>
+
+    <main>
+        <div class="container">
+            <div class="col-9">
+
+                <!-- Code for viewing the Post -->
+                <div class="card">
+                    <!-- Post 1 -->
+                    <div class="top">
+                        <!-- User Details -->
+                        <div class="userDetails">
+                            <div class="profilepic">
+                                <div class="profile_img">
+                                    <div class="image">
+                                        <img src="<%= post.creater.profile_image.url %>" alt="img8">
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>
+                                <%= post.creater.username %>
+
+                            </h3>
+
+                        </div>
+                        <div class="btn" width="30px">
+                            <button onclick="makeTeam()">Make Team..</button>
+                        </div>
+
+                    </div>
+                    <div class="imgBx">
+                        <img src="<%= post.image.url %>" alt="post-1" class="cover">
+                    </div>
+
+                    <!-- group name modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Group name</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p id="postId" hidden><%= post._id %></p>
+                              <input type="text" name="groupName" id="groupName" class="form-control" required placeholder="Enter group name">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" onclick="makeGroup()">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <div class="bottom">
+                        <a href="#">
+                            <p class="message">
+                                <b>
+                                    <%= post.content %>
+                                </b>
+                            </p>
+                        </a>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        Click to See Responses....
+                                        
+                                    </button>
+                                    
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <% let users = post.interested_user.reverse() %>
+                                        <% for(user of users) {%>
+                                            <a href="/users/<%= user._id %>/profile">
+                                                <div class="interstedPersons">
+                                                    <div class="userinfo">
+
+                                                    <div class="profilepic">
+                                                        <div class="profile_img">
+                                                            <div class="image">
+                                                                <img src="<%= user.profile_image.url %>" alt="img8">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="name">
+                                                        <%= user.username %>
+                                                    </div>
+                                                </div>
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" name="" id="<%= user._id %>" class="addMemberCheckbox">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <script src="/js/singlePost.js"></script>
+</body>
+
+</html>

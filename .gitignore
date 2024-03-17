@@ -1,0 +1,6 @@
+.env
+node_modules/
+assets/
+data/
+user.html
+User_profile.html

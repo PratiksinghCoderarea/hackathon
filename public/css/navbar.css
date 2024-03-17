@@ -1,0 +1,56 @@
+.navbar {
+    position: fixed;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(253, 253, 253);
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(148, 131, 131);
+}
+
+.navbar .container {
+    /* background-color: #555; */
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* margin: 0 auto; */
+}
+.icon{
+    height: 50px;
+    
+   
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+}
+i{
+    font-size: 1rem;
+}
+
+.icon img {
+    width: 100%; /* Set the width of the image to 100% of the parent container */
+    height: 100%; /* Set the height of the image to 100% of the parent container */
+    object-fit:fill; /* Or use 'contain' if you prefer */
+}
+.container .logo {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    width: 70%;
+    object-fit: cover;
+
+}
+@media screen and (max-width: 700px) {
+    .container {
+        width: 100% !important;
+    }
+
+    .navbar .container {
+        padding: 15px 10px !important;
+    }
+  }

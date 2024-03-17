@@ -1,0 +1,136 @@
+<%- layout("/layouts/boilerplate") -%>
+
+
+
+  <!-- Our Header section Starts from here -->
+  <div class="main">
+    <div class="container">
+      <div class="col-9">
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search">
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </div>
+        <div class="welcome">
+
+        </div>
+
+        <!-- Code for viewing the Post -->
+        <% for(post of posts) { %>
+          <div class="card">
+            <a href="/users/<%= post.creater._id %>/profile">
+              <div class="top">
+                <!-- User Details -->
+                <div class="userDetails">
+                  <div class="profilepic">
+                    <div class="profile_img">
+                      <div class="image">
+                        <!-- user profile pic -->
+                        <img src="<%= post.creater.profile_image.url %>" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <h3>
+                    <%= post.creater.username %>
+                  </h3>
+                </div>
+              </div>
+            </a>
+            <div class="imgBx">
+              <img src="<%= post.image.url %>" alt="post-1" class="cover" />
+            </div>
+            <div class="bottom">
+              <a href="#">
+                <p class="message">
+                  <b>
+                    <%= post.content %>
+                  </b>
+                </p>
+              </a>
+              <div class="actionBtns">
+                <div class="left">
+                  <% if(String(post.creater._id)==String(currUser._id)) { %>
+
+                    <a href="/posts/<%= post._id %>"><button class="button-50" id="<%= post._id %>" role="button">
+                        See post detail
+                      </button></a>
+
+                    <% } else { // %>
+                      <% // if user already interested then button %>
+                        <% if(post.interested_user.includes(String(currUser._id))) { %>
+                          <button class="button-50" id="<%= post._id %>" role="button" disabled>
+                            Done
+                          </button>
+                          <% } else { // %>
+                            <button class="button-50" id="<%= post._id %>" role="button"
+                              onclick="buttonClicked('<%= post._id %>')">
+                              Interest...?
+                            </button>
+                            <% } %>
+                              <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    const sender_id = "<%= currUser._id %>";
+    let socket = io("/user-namespace", {
+      auth: {
+        token: sender_id,
+      },
+    });
+
+    function buttonClicked(postId) {
+      let myButton = document.getElementById(postId);
+
+      // Change the button text to 'Done'
+      myButton.innerHTML = "Done";
+
+      // Make the button unclickable
+      myButton.disabled = true;
+
+      // Optionally, you can remove the onclick attribute to prevent further clicks
+      myButton.removeAttribute("onclick");
+
+      // send request to the server to show interest
+      // Make an AJAX request to the server
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "/posts/interested", true);
+      xhr.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+      );
+
+      // Set up the data to send to the server
+      const data = `postId=${postId}`;
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            // if (response.success) {
+            //     alert(response.message);
+            // } else {
+            //     alert(response.message);
+            // }
+          } else {
+            alert("Error occurred while making the request");
+          }
+        }
+      };
+
+      // Send the request with the data
+      xhr.send(data);
+    }
+  </script>

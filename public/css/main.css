@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #fafafa;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(253, 253, 253);
+    width: 100%;
+    border: 1px solid rgb(148, 131, 131);
+    height: 10vh;
+}
+
+
+
+
+.button-50 {
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .button-50:focus {
+    text-decoration: none;
+  }
+  
+  .button-50:hover {
+    text-decoration: none;
+  }
+  
+  .button-50:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+  }
+  
+  .button-50:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
+ /* @media (min-width: 768px) {
+    .button-50 {
+      padding: 12px 50px;
+    }
+  }  */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav-links {
+    font-weight: lighter;
+    color: rgb(172, 172, 172);
+    
+
+}
+.action .profile {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ .container {
+
+
+    display: flex;
+    width: 100%;
+     padding-right: 0px; 
+     padding-left: 0px; 
+     margin-right: 0px; 
+     margin-left: 0px; 
+
+    justify-content: center;
+    /* background: #ddd; */
+}
+
+.col-9 {
+    width: 65%;
+    margin-top: 5vh;
+   
+   
+   
+}
+    
+
+h1 {
+    
+    display: inline-block;
+    color: black;
+    margin: 9px;
+    width: 48vw;
+}
+
+
+.col-9 .card .top {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-9 .card .bottom {
+    padding: 10px 20px;
+}
+
+button {
+    /* padding: 5px 20px; */
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.clicked{
+    background-color: #cfd1cf;
+}
+
+
+.col-9 .card .top .userDetails {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profilepic {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profilepic .profile_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to right, red, orange);
+    padding: 2px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.profilepic .profile_img .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.profilepic .profile_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cover {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    max-height: 562px;
+    object-fit: cover;
+}
+
+.col-9 .card .top .userDetails h3 {
+    font-size: 25px;
+    color: #4d4d4f;
+    font-weight: 500;
+
+}
+
+.dot {
+    transform: scale(0.6);
+    cursor: pointer;
+}
+
+.imgBx {
+    position: relative;
+    width: 100%;
+    
+    margin: 10px 0 15px;
+}
+
+.actionBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actionBtns svg {
+    cursor: pointer;
+}
+
+.actionBtns .left svg {
+    margin-right: 8px;
+}
+
+
+
+.message {
+    /* font-weight: 100; */
+    /* margin-top: 5px; */
+    font-size: 20px;
+    color: #777;
+    line-height: 1.5em;
+}
+
+.message b {
+    color: #262626;
+}
+
+.message span {
+    cursor: pointer;
+    color: #1d92ff;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media  screen and (max-width:100px) {
+    .col-9{
+        width: 100%;
+    }
+}

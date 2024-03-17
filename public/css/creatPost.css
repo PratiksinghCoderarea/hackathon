@@ -1,0 +1,402 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.file-area {
+  width: 100%;
+  position: relative;
+}
+
+.file-area input[type="file"] {
+  border: 2px solid rgb(180, 87, 87);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-dummy {
+  display: none;
+  height: 70px;
+  border: 2px solid;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+.file-area input[type="file"]:focus+.file-dummy {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.file-area input[type="file"]:valid+.file-dummy {
+  border-color: rgba(0, 255, 0, 0.4);
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.avatar-preview {
+  height: 80vh;
+
+  position: relative;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-preview>div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+* {
+
+  font-family: "Lato", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  height: 100%;
+  background: #ffffff;
+  color: #000000;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px auto;
+  font-weight: 100;
+}
+
+label {
+  border: 2px solid;
+  padding: 2px;
+  font-weight: 500;
+  display: block;
+  margin: 4px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+label span {
+  border: 2px solid;
+  padding: 2px;
+  float: right;
+  text-transform: none;
+  font-weight: 200;
+  line-height: 1em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.form-controll {
+  border: 2px solid;
+  padding: 2px;
+  padding: 8px 16px;
+  width: 100%;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 200;
+}
+
+.form-controll:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+input {
+  border: 2px solid;
+  border: 2px solid;
+  padding: 2px;
+}
+
+.form-group button {
+  border: 2px solid;
+  padding: 2px;
+  padding: 8px 30px;
+  background: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+
+  text-shadow: 0 1px 2px #222020;
+  cursor: pointer;
+}
+
+.form-group {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.container-post {
+  border: 1px solid;
+  padding: 2px;
+  padding: 8px;
+  width: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+section {
+  margin-top: 2px;
+
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+#imagePreview {
+  width: 100%;
+  height: 100%;
+}
+
+.container .logo {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 70%;
+}
+
+
+.file-area {
+  width: 100%;
+  position: relative;
+}
+
+.file-area input[type="file"] {
+  border: 2px solid rgb(180, 87, 87);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-dummy {
+  display: none;
+  height: 70px;
+  border: 2px solid;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+.file-area input[type="file"]:focus+.file-dummy {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.file-area input[type="file"]:valid+.file-dummy {
+  border-color: rgba(0, 255, 0, 0.4);
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.avatar-preview {
+  height: 80vh;
+
+  position: relative;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-preview>div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 50px auto;
+  font-weight: 100;
+}
+
+label {
+  border: 2px solid;
+  padding: 2px;
+  font-weight: 500;
+  display: block;
+  margin: 4px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+label span {
+  border: 2px solid;
+  padding: 2px;
+  float: right;
+  text-transform: none;
+  font-weight: 200;
+  line-height: 1em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.form-controll {
+  border: 2px solid;
+  padding: 2px;
+  padding: 8px 16px;
+  width: 100%;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 200;
+}
+
+.form-controll:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+input {
+  border: 2px solid;
+  border: 2px solid;
+  padding: 2px;
+}
+
+/* CSS */
+.form-group .button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 18px;
+}
+
+.form-group .button-74:hover {
+  background-color: #fff;
+}
+
+.form-group .button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .form-group .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+/* CSS */
+.form-group .button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 3px;
+}
+
+.form-group .button-74:hover {
+  background-color: #fff;
+}
+
+.form-group .button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .form-group .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.form-group {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.container-post {
+  margin: 15px;
+  padding: 6px;
+  border-radius: 10px;
+  width: 45%;
+  border: 4px solid;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+#imagePreview {
+  width: 100%;
+  height: 100%;
+}
+
+.contain {
+
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 650px) {
+
+  .container-post {
+    width: 100%;
+  }
+
+  .navbar .container {
+    padding: 15px 10px !important;
+  }
+}
+
+textarea {
+  min-height: 12vh;
+}

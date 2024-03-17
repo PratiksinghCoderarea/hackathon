@@ -1,0 +1,98 @@
+<%- layout("/layouts/boilerplate") -%>
+
+
+
+  <section class="contain">
+    <div class="container-post">
+      <form action="/posts" method="post" enctype="multipart/form-data" onsubmit="validateForm()">
+        <div class="form-group">
+
+          <textarea type="text" required placeholder="Add info about post..." name="content" id="content"
+            class="form-controll" style="
+                color: #000000;
+                text-shadow: #000000;
+                font-weight: 600;
+                border: 2px solid;
+              "></textarea>
+        </div>
+
+        <div class="form-group file-area">
+          <!-- Replace the file input with a button -->
+          <!-- HTML !-->
+          
+
+
+          <input type="file" name="image" id="image" required />
+          <div class="file-dummy">
+            <div class="avatar-preview">
+              <div id="imagePreview" style="
+                    background-image: url(https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1706519723~exp=1706520323~hmac=24d138e5d0dbb62517819149691d75d6832aa630914640b0d3a5e42fd5e8ebde);
+                  " aria-placeholder="adjgkd"></div>
+            </div>
+          </div>
+          <button class="button-74" role="button">Add Image...</button>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="button-74"  onclick="validateForm()">Post It</button>
+          <div class="error-message"></div>
+        </div>
+      </form>
+
+      <link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700" rel="stylesheet"
+        type="text/css" />
+    </div>
+  </section>
+
+  <script>
+    const sender_id = "<%= currUser._id %>";
+    let socket = io("/user-namespace", {
+      auth: {
+        token: sender_id,
+      },
+    });
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $("#imagePreview").css(
+            "background-image",
+            "url(" + e.target.result + ")"
+          );
+          $("#imagePreview").hide();
+          $("#imagePreview").fadeIn(650);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    function validateForm() {
+      var caption = $("#content").val();
+      var images = $("#image")[0].files;
+
+      // Check if caption and image are empty
+      if (caption.trim() === "" && images.length === 0) {
+        $(".error-message").text("Content and image cannot be empty");
+        return false;
+      } else if (caption.trim() === "") {
+        $(".error-message").text("Content cannot be empty");
+        return false;
+      } else if (images.length === 0) {
+        $(".error-message").text("Image cannot be empty");
+        return false;
+      } else {
+        // Clear any previous error messages
+        $(".error-message").text("");
+        return true;
+      }
+    }
+
+    // Trigger the file input's click event when the button is clicked
+    $("#imageButton").click(function () {
+      $("#image").click();
+      $("#file-dummy").addClass("file-dummy");
+    });
+
+    $("#image").change(function () {
+      readURL(this);
+    });
+  </script>
