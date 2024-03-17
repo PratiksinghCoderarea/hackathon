@@ -12,44 +12,44 @@
 
 Install node.js in your local system. 
 * npm
-  sh
+  ```sh
   npm install npm@latest -g
-  
+  ```
 * nodemon
-  sh
+  ```sh
   npm install -g nodemon
-  
+  ```
 
 ### Installation
 
 1. Clone the repo
-   sh
+   ```sh
    git clone https://github.com/PratiksinghCoderarea/hackathon
-   
+   ```
 2. Install NPM packages
-   sh
+   ```sh
    npm install
-   
-3. Enter your API in .env
-   sh
+   ```
+3. Enter your API in `.env`
+   ```sh
    CLOUD_NAME=<Enter your cloudinary cloud name>
-   
-   sh
+   ```
+   ```sh
     CLOUD_API_KEY=<Enter your cloudinary cloud api key>
-    
-    sh
+    ```
+    ```sh
     CLOUD_API_SECRET=<Enter your cloudinary cloud api secret>
-    
-   sh
+    ```
+   ```sh
     ATLAS_URL=<Enter your mongodb atlas url>
-   
-   sh
+   ```
+   ```sh
     SECRET=ADNADKJ638HEQWD8913E8HDKhsw8qe8i
-   
+   ```
 4. Run
-    sh
+    ```sh
    npm run dev
-   
+   ```
 
 
 ## License
